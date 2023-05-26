@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            {{ message }}
+            {{ count }}
+            <br>
+            {{ messageCount }}
+            <!-- v-on: = @  -->
+            <br>
+            <button v-on:click="message = 'Olá'">
+                Escreve Olá
+            </button>
+            <br>
+            <button @click="count++">
+                Incrementar
+            </button>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+        <script>
+            const app = new Vue({
+                el: "#app",
+                data: {
+                  message: 'Hello Dio',
+                  count: 0
+                },
+                computed: {
+                    messageCount() {    
+                        return `${this.message} - ${this.count}`;
+                    }
+                },
+            });
+        </script>
+    </body>
+</html>
